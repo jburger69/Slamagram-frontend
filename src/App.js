@@ -19,10 +19,10 @@ render(){
   return (
     <div className="App">
       <Header />
+      <PostForm />
       <div className="cards">
           {this.props.posts.map((post) => (<PostCard post={post} />))}
       </div>
-      <PostForm />
     </div>
   )
 }
