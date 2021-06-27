@@ -5,13 +5,23 @@ export const addPost = (postObj) => {
     }
 }
 
-// export const createPost = (post) => {
-//     return (dispatch) => {
-//         post fetch for creating a new post
-//         then dispatch
-//         call ADD_POST for dispatch
-//     }
-// }
+export const createPost = (post) => {
+    return (dispatch) => {
+        fetch("http://localhost:3000/api/v1/posts", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'accept': 'application/json'
+            },
+            body: JSON.stringify({post}), 
+        })
+            .then(resp => resp.json())
+            .then(post => {
+                console.log(post)
+                dispatch(addPost(post))
+            })
+    }
+}
 
 export const getPosts = () => {
     return (dispatch) => {
