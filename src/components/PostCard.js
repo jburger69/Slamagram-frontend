@@ -6,16 +6,17 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
+import DeletePost from "./DeletePost";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345
   },
   gridContainer: {
-    paddingLeft: "40px",
-    paddingRight: "40px"
+    paddingLeft: "200px",
+    paddingRight: "200px"
   },
   media: {
     height: 0,
@@ -40,6 +41,12 @@ export default function PostCard(props) {
   const classes = useStyles();
   const { image_url, content} = props.post
 
+  // function handleClick(e) {
+  //   console.log(e.target);
+  // }
+
+
+
   return (
     <Grid container spacing={10} className={classes.gridContainer} justify="center">
         <Grid item xs={6}>
@@ -54,9 +61,11 @@ export default function PostCard(props) {
                 </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                <Button variant="contained" color="primary">
+                {/* <Button variant="contained" color="primary" onClick={handleClick} >
                     View Post
-                </Button>
+                </Button> */}
+                <DeletePost post={props.post}/>
+                
                 </CardActions>
             </Card>
         </Grid>
