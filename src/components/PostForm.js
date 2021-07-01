@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {createPost} from "../actions/Posts"
+import '../components/PostForm.css';
+
 
 class PostForm extends Component {
     
     state={
         content: "",  
         image_url: ""
+    }
+
+    constructor(){
+        super();
+       this.handleChange.bind(this);
+       this.handleSubmit.bind(this);
     }
 
     handleChange = (e) => {
@@ -24,10 +32,11 @@ class PostForm extends Component {
         })
     }
     
+    
     render() {
         return (
-            <div id="posts-form">
                 <form onSubmit={this.handleSubmit}>
+                    <h1> Create a new Post</h1>
                     <div>
                         <label htmlFor="content">Content: </label>
                         <input id="content" name="content" value={this.state.content} onChange={this.handleChange} />
@@ -40,7 +49,7 @@ class PostForm extends Component {
                         <input type="submit" value="ADD A POST" />
                     </div>
                 </form>
-            </div>
+            
         )
     }
 }
