@@ -23,6 +23,8 @@ export const createPost = (post) => {
     }
 }
 
+
+
 export const getPosts = () => {
     return (dispatch) => {
         fetch("http://localhost:3000/api/v1/posts")
@@ -34,4 +36,13 @@ export const getPosts = () => {
                 })
             })
         }
+}
+
+export const deletePost = (Id) => {
+    return (dispatch) => {
+        dispatch({ type: "DELETE_POST", payload: Id });
+        fetch(`http://localhost:3000/api/v1/posts/${Id}`, {
+        method: "DELETE",
+        })
+    }
 }
