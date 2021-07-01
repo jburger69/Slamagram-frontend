@@ -1,10 +1,17 @@
 import { Component } from 'react';
 import './App.css';
-import PostCard from './components/PostCard'
-import Header from './components/Header';
 import {connect} from 'react-redux'
 import { getPosts } from './actions/Posts';
 import PostForm from './components/PostForm';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Home from './pages/Home';
+import About from './pages/About';
+import Navbar from './components/Navbar';
+import Postpage from './pages/Postpage';
 
 class App extends Component {
 
@@ -15,19 +22,19 @@ class App extends Component {
 
 
 
-render(){
-  return (
-    <div className="App">
-      <Header />
-      <PostForm />
-      <div className="cards">
-          {this.props.posts.map((post) => (<PostCard post={post} />))}
-      </div>
-    </div>
-  )
-}
-
-
+  render(){
+    return (
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/home' exact component={Home} />
+          <Route path='/posts' exact component={Postpage} />
+          <Route path='/posts/new' exact component={PostForm} />
+          <Route path='/about' exact component={About} />
+        </Switch>
+      </Router>
+    )
+  }
 
 }
 
