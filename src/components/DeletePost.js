@@ -6,7 +6,6 @@ const DeletePost = (props) => {
     
     const handleDelete = (post) => {
         props.deletePost(post.id)
-        window.location.reload()
     }
 
     let post = props.post
