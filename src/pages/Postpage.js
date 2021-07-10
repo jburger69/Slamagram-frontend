@@ -1,15 +1,38 @@
 import React from 'react';
+import { Component } from 'react';
 import PostCard from '../components/PostCard';
 import {connect} from 'react-redux';
+import { getPosts } from '../actions/Posts';
 
-const Postpage = (props) => {
-  return (
-    <div>
-          <div className="cards">
-              {props.posts.map((post) => (<PostCard post={post} />))}
-          </div>
-    </div>
-  );
+
+
+class Postpage extends Component {
+  
+
+  constructor(props){
+    super(props);
+    this.state={
+        posts: props.post
+    }
+  }
+
+  componentDidMount(){
+    this.props.getPosts()
+  }
+
+
+
+  render() {
+    const posts = this.props.posts.map(p => <PostCard post={p} />)
+    return (
+      <div >
+        {posts}
+      </div>
+    );
+  }
+
+
+  
 };
 
 const mapStateToProps = (state) => {
@@ -17,4 +40,7 @@ const mapStateToProps = (state) => {
     posts: state.posts
   }
 }
-export default connect(mapStateToProps)(Postpage);
+
+
+
+export default connect(mapStateToProps, { getPosts })(Postpage);
