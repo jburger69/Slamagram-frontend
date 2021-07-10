@@ -6,9 +6,10 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
-// import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import DeletePost from "./DeletePost";
+// import ViewPost from "./ViewPost";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,11 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PostCard(props) {
   const classes = useStyles();
-  const { image_url, content} = props.post
+  const { image_url, content, id } = props.post
 
-  // function handleClick(e) {
-  //   console.log(e.target);
-  // }
 
 
 
@@ -57,15 +55,13 @@ export default function PostCard(props) {
                 />
                 <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {content}
+                    Description: {content}
                 </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                {/* <Button variant="contained" color="primary" onClick={handleClick} >
-                    View Post
-                </Button> */}
                 <DeletePost post={props.post}/>
-                
+                {/* <ViewPost post={props.post}/> */}
+                <Link to={`posts/${id}`}>View Post</Link>
                 </CardActions>
             </Card>
         </Grid>
