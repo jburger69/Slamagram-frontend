@@ -16,9 +16,9 @@ import Post from './pages/Post';
 
 class App extends Component {
 
-  // componentDidMount(){
-  //   this.props.getPosts()
-  // }
+  componentDidMount(){
+    this.props.getPosts()
+  }
 
 
   render(){
