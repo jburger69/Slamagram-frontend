@@ -38,6 +38,20 @@ export const getPosts = () => {
         }
 }
 
+export const viewPost = (Id) => {
+    return (dispatch) => {
+        // dispatch({ type: "VIEW_POST", payload: Id });
+        fetch(`http://localhost:3000/api/v1/posts/${Id}`)
+        .then(resp => resp.json())
+        .then(post => {
+            dispatch({
+                type: "VIEW_POST",
+                payload: post
+            })
+        })
+    }
+}
+
 export const deletePost = (Id) => {
     return (dispatch) => {
         dispatch({ type: "DELETE_POST", payload: Id });
