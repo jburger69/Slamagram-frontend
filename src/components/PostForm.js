@@ -30,6 +30,7 @@ class PostForm extends Component {
             content: "",  
             image_url: ""
         })
+        this.props.history.push('/posts');
     }
     
     
