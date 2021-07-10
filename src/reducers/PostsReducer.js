@@ -5,7 +5,7 @@ const initialState = {
 }
 const postsReducer = (state = initialState, action ) => {
     switch(action.type) {
-        case "ADD_POSTS":
+        case "ADD_POST":
             return {
                 ...state,
                 posts: [...state.posts, action.payload]
@@ -18,14 +18,12 @@ const postsReducer = (state = initialState, action ) => {
                 posts: [...state.posts, ...action.payload]
             }
 
-
-        case "VIEW_POST":
-            return state.posts.filter(post => post.id !== action.payload)
-
             
 
         case "DELETE_POST":
-            return state.posts.filter(post => post.id !== action.payload)
+            return {
+                posts: state.posts.filter(post => post.id !== action.payload)
+            }
 
 
 
