@@ -99,16 +99,16 @@ const Navbar = () => {
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/home' activeStyle>
+          <NavLink to='/home'>
             Home
           </NavLink>
-          <NavLink to='/posts' activeStyle>
+          <NavLink to='/posts'>
             Posts
           </NavLink>
-          <NavLink to='/posts/new' activeStyle>
+          <NavLink to='/posts/new'>
             Create a new post
           </NavLink>
-          <NavLink to='/about' activeStyle>
+          <NavLink to='/about'>
             about
           </NavLink>
         </NavMenu>
