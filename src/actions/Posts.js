@@ -17,7 +17,6 @@ export const createPost = (post) => {
         })
             .then(resp => resp.json())
             .then(post => {
-                console.log(post)
                 dispatch(addPost(post))
             })
     }
