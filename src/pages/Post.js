@@ -39,7 +39,6 @@ function Post({match, posts}){
     const classes = useStyles();
     let post = posts.find(post => post.id === parseInt(match.params.id))
     const { image_url, content } = post
-    console.log(post)
 
     
 
