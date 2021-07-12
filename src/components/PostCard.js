@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345
   },
   gridContainer: {
+    margin: "5px",
     paddingLeft: "200px",
     paddingRight: "200px"
   },
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PostCard(props) {
+  //Hook API
   const classes = useStyles();
   const { image_url, content, id } = props.post
 
@@ -58,8 +60,8 @@ export default function PostCard(props) {
                 </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                <DeletePost post={props.post}/>
-                <Link to={`posts/${id}`}>View Post</Link>
+                  <DeletePost post={props.post}/>
+                  <Link to={`posts/${id}`}>View Post</Link>
                 </CardActions>
             </Card>
         </Grid>
