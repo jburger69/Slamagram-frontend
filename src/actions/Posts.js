@@ -25,6 +25,7 @@ export const createPost = (post) => {
 
 
 export const getPosts = () => {
+    console.log("c")
     return (dispatch) => {
         fetch("http://localhost:3000/api/v1/posts")
             .then(resp => resp.json())
